@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareTrack Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!--Sidebar-->
+      <aside class="sidebar">
+        <h2>CareTrack</h2>
+
+        <nav>
+          <a href="#">Dashboard</a>
+          <a href="#">Patients</a>
+          <a href="#">Schedule</a>
+          <a href="#">Reports</a>
+        </nav>
+      </aside>
+      <!--Main Content-->
+      <main class="main">
+        <header>
+          <h1>Patient Dashboard</h1>
+          <p>Welcome back, Christopher</p>
+        </header>
+        <!--Stats Cards-->
+        <section class="cards">
+          <div class="card">
+            <h3>Total Patients</h3>
+            <p>128</p>
+          </div>
+          <div class="card">
+            <h3>Active Patients</h3>
+            <p>96</p>
+          </div>
+          <div class="card">
+            <h3>Follow Ups</h3>
+            <p>14</p>
+          </div>
+        </section>
+        <!--Patient Table-->
+        <section class="patients">
+          <h2>Recent Patients</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Program</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sarah Jones</td>
+                <td class="follow-up">Follow Up</td>
+                <td>Outpatient</td>
+              </tr>
+              <tr>
+                <td>John Smith</td>
+                <td class="active">Active</td>
+                <td>Residential</td>
+              </tr>
+              <tr>
+                <td>Mike Brown</td>
+                <td class="discharged">Discharged</td>
+                <td>Aftercare</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

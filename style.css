@@ -1,0 +1,142 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global */
+body {
+  font-family: Ariel, Helvetica, sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #1e3a5f;
+  color: white;
+  padding: 2rem;
+}
+.sidebar h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar a {
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+.sidebar a:hover {
+  background-color: #315b8a;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: o.5rem;
+}
+
+header p {
+  color: #666;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0, 0.08);
+}
+
+.card h3 {
+  color: #555;
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e3a5f;
+  margin-top: 0.5rem;
+}
+
+.patients {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0, 0.8);
+}
+
+.patients h2 {
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  background-color: #f1f5f9;
+  padding: 1rem;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.active {
+  color: #15803d;
+  font-weight: bold;
+}
+
+.discharged {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
