@@ -44,13 +44,26 @@
         </section>
         <!--Patient Table-->
         <section class="patients">
-          <h2>Recent Patients</h2>
+          <div class="patient-header">
+            <h2>Recent Patients</h2>
+
+            <div class="patient-controls">
+              <input
+                type="text"
+                id="searchPatient"
+                placeholder="Search patients..."
+              />
+
+              <button id="addPatientBtn">+ Add Patient</button>
+            </div>
+          </div>
           <table>
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Status</th>
                 <th>Program</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -73,6 +86,38 @@
           </table>
         </section>
       </main>
+    </div>
+    <!-- Add Patient Modal -->
+    <div class="modal" id="patientModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+
+        <h2>Add New Patient</h2>
+
+        <form id="patientForm">
+          <input
+            type="text"
+            id="patientName"
+            placeholder="Patient Name"
+            required
+          />
+
+          <select id="patientStatus">
+            <option value="Active">Active</option>
+            <option value="Follow Up">Follow Up</option>
+            <option value="Discharged">Discharged</option>
+          </select>
+
+          <input
+            type="text"
+            id="patientProgram"
+            placeholder="Program"
+            required
+          />
+
+          <button type="submit">Save Patient</button>
+        </form>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
