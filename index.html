@@ -92,15 +92,29 @@
       <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
 
-        <h2>Add New Patient</h2>
+        <h2 id="modalTitle">Add New Patient</h2>
 
         <form id="patientForm">
+          <input type="hidden" id="editIndex" value="" />
           <input
             type="text"
             id="patientName"
             placeholder="Patient Name"
             required
           />
+          <input type="date" id="patientDOB" />
+
+          <input type="tel" id="patientPhone" placeholder="Phone Number" />
+
+          <input type="text" id="patientCounselor" placeholder="Counselor" />
+
+          <input type="text" id="patientDiagnosis" placeholder="Diagnosis" />
+
+          <textarea
+            id="patientNotes"
+            placeholder="Patient Notes"
+            rows="4"
+          ></textarea>
 
           <select id="patientStatus">
             <option value="Active">Active</option>
@@ -115,9 +129,38 @@
             required
           />
 
-          <button type="submit">Save Patient</button>
+          <button type="submit" id="savePatientBtn">Save Patient</button>
         </form>
       </div>
+    </div>
+    <div id="patientDetails" class="details-panel">
+      <span id="closeDetails" class="close">&times;</span>
+
+      <h2 id="detailsName">Patient</h2>
+
+      <p><strong>Status:</strong> <span id="detailsStatus"></span></p>
+
+      <p><strong>Program:</strong> <span id="detailsProgram"></span></p>
+
+      <p>
+        <strong>Date of Birth:</strong> <span id="detailsDOB">Not entered</span>
+      </p>
+
+      <p><strong>Phone:</strong> <span id="detailsPhone">Not entered</span></p>
+
+      <p>
+        <strong>Counselor:</strong>
+        <span id="detailsCounselor">Christopher</span>
+      </p>
+
+      <p>
+        <strong>Diagnosis:</strong>
+        <span id="detailsDiagnosis">Not entered</span>
+      </p>
+
+      <p><strong>Notes:</strong></p>
+
+      <div id="detailsNotes">No notes yet.</div>
     </div>
     <script src="script.js"></script>
   </body>

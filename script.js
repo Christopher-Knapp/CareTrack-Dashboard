@@ -62,23 +62,27 @@ function displayPatients(list = patients) {
 
       <td>${patient.program}</td>
 
-      <td class="actions">
+     <td class="actions">
 
-        <button 
+    <button
+        class="view-btn"
+        onclick="viewPatient(${index})">
+        View
+    </button>
+
+    <button
         class="edit-btn"
         onclick="editPatient(${index})">
         Edit
-        </button>
+    </button>
 
-
-        <button 
+    <button
         class="delete-btn"
         onclick="deletePatient(${index})">
         Delete
-        </button>
+    </button>
 
-      </td>
-
+</td>
     `;
 
     patientTable.appendChild(row);
@@ -106,7 +110,33 @@ const addPatientBtn = document.getElementById("addPatientBtn");
 const closeModal = document.getElementById("closeModal");
 const patientForm = document.getElementById("patientForm");
 
+const editIndex = document.getElementById("editIndex");
+
+const modalTitle = document.getElementById("modalTitle");
+
+const savePatientBtn = document.getElementById("savePatientBtn");
+
+const detailsPanel = document.getElementById("patientDetails");
+const closeDetails = document.getElementById("closeDetails");
+
+const detailsName = document.getElementById("detailsName");
+const detailsStatus = document.getElementById("detailsStatus");
+const detailsProgram = document.getElementById("detailsProgram");
+const detailsDOB = document.getElementById("detailsDOB");
+const detailsPhone = document.getElementById("detailsPhone");
+const detailsCounselor = document.getElementById("detailsCounselor");
+const detailsDiagnosis = document.getElementById("detailsDiagnosis");
+const detailsNotes = document.getElementById("detailsNotes");
+
 addPatientBtn.addEventListener("click", () => {
+  patientForm.reset();
+
+  editIndex.value = "";
+
+  modalTitle.textContent = "Add New Patient";
+
+  savePatientBtn.textContent = "Save Patient";
+
   modal.style.display = "block";
 });
 
@@ -125,15 +155,22 @@ window.addEventListener("click", (event) => {
 patientForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const newPatient = {
+  const patientData = {
     name: document.getElementById("patientName").value,
-
     status: document.getElementById("patientStatus").value,
-
     program: document.getElementById("patientProgram").value,
+    dob: document.getElementById("patientDOB").value,
+    phone: document.getElementById("patientPhone").value,
+    counselor: document.getElementById("patientCounselor").value,
+    diagnosis: document.getElementById("patientDiagnosis").value,
+    notes: document.getElementById("patientNotes").value,
   };
 
-  patients.push(newPatient);
+  if (editIndex.value === "") {
+    patients.push(patientData);
+  } else {
+    patients[editIndex.value] = patientData;
+  }
 
   localStorage.setItem("patients", JSON.stringify(patients));
 
@@ -142,6 +179,11 @@ patientForm.addEventListener("submit", (event) => {
   displayPatients();
 
   patientForm.reset();
+
+  editIndex.value = "";
+
+  modalTitle.textContent = "Add New Patient";
+  savePatientBtn.textContent = "Save Patient";
 
   modal.style.display = "none";
 });
@@ -169,27 +211,40 @@ function deletePatient(index) {
 function editPatient(index) {
   const patient = patients[index];
 
-  const newName = prompt("Patient name:", patient.name);
+  document.getElementById("patientName").value = patient.name;
+  document.getElementById("patientStatus").value = patient.status;
+  document.getElementById("patientProgram").value = patient.program;
+  document.getElementById("patientDOB").value = patient.dob || "";
+  document.getElementById("patientPhone").value = patient.phone || "";
+  document.getElementById("patientCounselor").value = patient.counselor || "";
+  document.getElementById("patientDiagnosis").value = patient.diagnosis || "";
+  document.getElementById("patientNotes").value = patient.notes || "";
 
-  const newStatus = prompt("Status:", patient.status);
+  editIndex.value = index;
 
-  const newProgram = prompt("Program:", patient.program);
+  modalTitle.textContent = "Edit Patient";
+  savePatientBtn.textContent = "Update Patient";
 
-  if (newName && newStatus && newProgram) {
-    patient.name = newName;
-
-    patient.status = newStatus;
-
-    patient.program = newProgram;
-
-    localStorage.setItem("patients", JSON.stringify(patients));
-
-    updateDashboard();
-
-    displayPatients();
-  }
+  modal.style.display = "block";
 }
+function viewPatient(index) {
+  const patient = patients[index];
 
+  detailsName.textContent = patient.name;
+  detailsStatus.textContent = patient.status;
+  detailsProgram.textContent = patient.program;
+
+  detailsDOB.textContent = patient.dob || "Not entered";
+  detailsPhone.textContent = patient.phone || "Not entered";
+  detailsCounselor.textContent = patient.counselor || "Christopher";
+  detailsDiagnosis.textContent = patient.diagnosis || "Not entered";
+  detailsNotes.textContent = patient.notes || "No notes yet.";
+
+  detailsPanel.classList.add("open");
+  closeDetails.addEventListener("click", () => {
+    detailsPanel.classList.remove("open");
+  });
+}
 // Start Dashboard
 
 updateDashboard();

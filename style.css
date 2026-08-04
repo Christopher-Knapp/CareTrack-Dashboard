@@ -215,12 +215,17 @@ td {
 }
 
 .modal-content input,
-.modal-content select {
+.modal-content select,
+.modal-content textarea {
   width: 100%;
   padding: 0.8rem;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+.modal-content textarea {
+  resize: vertical;
+  font-family: inherit;
 }
 
 .modal-content button {
@@ -266,4 +271,52 @@ td {
 
 .delete-btn:hover {
   background-color: #b91c1c;
+}
+.view-btn {
+  background: #0f766e;
+}
+
+.view-btn:hover {
+  background: #115e59;
+}
+/* Patient Details Panel */
+
+.details-panel {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 100%;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  transition: right 0.35s ease;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.details-panel.open {
+  right: 0;
+}
+
+.details-panel h2 {
+  margin-bottom: 1.5rem;
+  color: #1e3a5f;
+}
+
+.details-panel p {
+  margin-bottom: 1rem;
+}
+
+.details-panel strong {
+  color: #1e3a5f;
+}
+
+#detailsNotes {
+  margin-top: 0.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 120px;
 }
