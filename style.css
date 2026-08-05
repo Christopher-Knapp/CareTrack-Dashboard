@@ -136,6 +136,10 @@ td {
   .sidebar {
     width: 100%;
   }
+  .sidebar a.active {
+    background-color: #315b8a;
+    font-weight: bold;
+  }
   .cards {
     grid-template-columns: 1fr;
   }
@@ -319,4 +323,28 @@ td {
   border-radius: 8px;
   padding: 1rem;
   min-height: 120px;
+}
+.patient-summary {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-box {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  flex: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.summary-box h3 {
+  color: #555;
+  font-size: 1rem;
+}
+
+.summary-box p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e3a5f;
 }
