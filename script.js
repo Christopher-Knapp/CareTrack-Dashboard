@@ -106,7 +106,7 @@ searchInput.addEventListener("input", () => {
 // Modal
 
 const modal = document.getElementById("patientModal");
-const addPatientBtn = document.getElementById("addPatientBtn");
+
 const closeModal = document.getElementById("closeModal");
 const patientForm = document.getElementById("patientForm");
 
@@ -127,18 +127,6 @@ const detailsPhone = document.getElementById("detailsPhone");
 const detailsCounselor = document.getElementById("detailsCounselor");
 const detailsDiagnosis = document.getElementById("detailsDiagnosis");
 const detailsNotes = document.getElementById("detailsNotes");
-
-addPatientBtn.addEventListener("click", () => {
-  patientForm.reset();
-
-  editIndex.value = "";
-
-  modalTitle.textContent = "Add New Patient";
-
-  savePatientBtn.textContent = "Save Patient";
-
-  modal.style.display = "block";
-});
 
 closeModal.addEventListener("click", () => {
   modal.style.display = "none";
