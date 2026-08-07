@@ -51,6 +51,7 @@ a {
 .main {
   flex: 1;
   padding: 2rem;
+  overflow-x: auto;
 }
 
 header {
@@ -68,11 +69,10 @@ header p {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
-
 .card {
   background-color: white;
   padding: 1.5rem;
@@ -280,8 +280,8 @@ td {
   background: #0f766e;
 }
 
-.view-btn:hover {
-  background: #115e59;
+.view-btn {
+  background: #0f766e;
 }
 /* Patient Details Panel */
 
@@ -347,4 +347,15 @@ td {
   font-size: 2rem;
   font-weight: bold;
   color: #1e3a5f;
+}
+
+.report-table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.report-table th,
+.report-table td {
+  padding: 15px;
+  text-align: left;
 }

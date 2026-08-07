@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CareTrack Dashboard</title>
+    <title>CareTrack Reports</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="dashboard">
-      <!--Sidebar-->
+      <!-- Sidebar -->
       <aside class="sidebar">
         <h2>CareTrack</h2>
 
@@ -16,152 +18,76 @@
           <a href="index.html">Dashboard</a>
           <a href="patients.html">Patients</a>
           <a href="schedule.html">Schedule</a>
-          <a href="reports.html">Reports</a>
+          <a href="reports.html" class="active">Reports</a>
         </nav>
       </aside>
-      <!--Main Content-->
+
+      <!-- Main Content -->
       <main class="main">
         <header>
           <h1>Reports</h1>
-          <p>View patient statistics and reports.</p>
+          <p>Patient and appointment overview</p>
         </header>
-        <!--Stats Cards-->
+
         <section class="cards">
           <div class="card">
             <h3>Total Patients</h3>
-            <p id="allPatients">0</p>
+            <p id="reportTotalPatients">0</p>
           </div>
 
           <div class="card">
             <h3>Active Patients</h3>
-            <p id="totalPatients">0</p>
+            <p id="reportActivePatients">0</p>
           </div>
 
           <div class="card">
             <h3>Follow Ups</h3>
-            <p id="followUps">0</p>
+            <p id="reportFollowUps">0</p>
+          </div>
+
+          <div class="card">
+            <h3>Discharged</h3>
+            <p id="reportDischarged">0</p>
+          </div>
+
+          <div class="card">
+            <h3>Appointments</h3>
+            <p id="reportAppointments">0</p>
           </div>
         </section>
-        <!--Patient Table-->
+
         <section class="patients">
-          <div class="patient-header">
-            <h2>Recent Patients</h2>
+          <h2>Patient Status Summary</h2>
 
-            <div class="patient-controls">
-              <input
-                type="text"
-                id="searchPatient"
-                placeholder="Search patients..."
-              />
-
-              <button id="addPatientBtn">+ Add Patient</button>
-            </div>
-          </div>
-          <table>
+          <table class="report-table">
             <thead>
               <tr>
-                <th>Name</th>
                 <th>Status</th>
-                <th>Program</th>
-                <th>Actions</th>
+                <th>Count</th>
               </tr>
             </thead>
+
             <tbody>
               <tr>
-                <td>Sarah Jones</td>
-                <td class="follow-up">Follow Up</td>
-                <td>Outpatient</td>
+                <td>Active</td>
+                <td id="activeCount">0</td>
               </tr>
+
               <tr>
-                <td>John Smith</td>
-                <td class="active">Active</td>
-                <td>Residential</td>
+                <td>Follow Up</td>
+                <td id="followUpCount">0</td>
               </tr>
+
               <tr>
-                <td>Mike Brown</td>
-                <td class="discharged">Discharged</td>
-                <td>Aftercare</td>
+                <td>Discharged</td>
+                <td id="dischargedCount">0</td>
               </tr>
             </tbody>
           </table>
         </section>
       </main>
     </div>
-    <!-- Add Patient Modal -->
-    <div class="modal" id="patientModal">
-      <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
 
-        <h2 id="modalTitle">Add New Patient</h2>
-
-        <form id="patientForm">
-          <input type="hidden" id="editIndex" value="" />
-          <input
-            type="text"
-            id="patientName"
-            placeholder="Patient Name"
-            required
-          />
-          <input type="date" id="patientDOB" />
-
-          <input type="tel" id="patientPhone" placeholder="Phone Number" />
-
-          <input type="text" id="patientCounselor" placeholder="Counselor" />
-
-          <input type="text" id="patientDiagnosis" placeholder="Diagnosis" />
-
-          <textarea
-            id="patientNotes"
-            placeholder="Patient Notes"
-            rows="4"
-          ></textarea>
-
-          <select id="patientStatus">
-            <option value="Active">Active</option>
-            <option value="Follow Up">Follow Up</option>
-            <option value="Discharged">Discharged</option>
-          </select>
-
-          <input
-            type="text"
-            id="patientProgram"
-            placeholder="Program"
-            required
-          />
-
-          <button type="submit" id="savePatientBtn">Save Patient</button>
-        </form>
-      </div>
-    </div>
-    <div id="patientDetails" class="details-panel">
-      <span id="closeDetails" class="close">&times;</span>
-
-      <h2 id="detailsName">Patient</h2>
-
-      <p><strong>Status:</strong> <span id="detailsStatus"></span></p>
-
-      <p><strong>Program:</strong> <span id="detailsProgram"></span></p>
-
-      <p>
-        <strong>Date of Birth:</strong> <span id="detailsDOB">Not entered</span>
-      </p>
-
-      <p><strong>Phone:</strong> <span id="detailsPhone">Not entered</span></p>
-
-      <p>
-        <strong>Counselor:</strong>
-        <span id="detailsCounselor">Christopher</span>
-      </p>
-
-      <p>
-        <strong>Diagnosis:</strong>
-        <span id="detailsDiagnosis">Not entered</span>
-      </p>
-
-      <p><strong>Notes:</strong></p>
-
-      <div id="detailsNotes">No notes yet.</div>
-    </div>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
