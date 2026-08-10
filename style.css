@@ -359,3 +359,270 @@ td {
   padding: 15px;
   text-align: left;
 }
+/* =====================================================
+   FINAL MOBILE RESPONSIVE STYLES
+   CareTrack Dashboard
+   ===================================================== */
+
+@media (max-width: 768px) {
+  /* ---------- General ---------- */
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .dashboard {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .main {
+    width: 100%;
+    padding: 1.25rem;
+    overflow-x: visible;
+  }
+
+  /* ---------- Mobile Navigation ---------- */
+
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .sidebar h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sidebar a {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  /* ---------- Page Headers ---------- */
+
+  header {
+    margin-bottom: 1.5rem;
+  }
+
+  header h1 {
+    font-size: 1.7rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Stats Cards ---------- */
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .card p {
+    font-size: 1.7rem;
+  }
+
+  /* ---------- Patient / Table Sections ---------- */
+
+  .patients {
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .patients h2 {
+    font-size: 1.3rem;
+  }
+
+  .patient-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .patient-controls {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .patient-controls input,
+  .patient-controls button {
+    width: 100%;
+  }
+
+  /* ---------- Scrollable Tables ---------- */
+
+  /*
+     Wide healthcare tables should stay in table format,
+     but users can swipe horizontally on phones.
+  */
+
+  .patients {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 650px;
+  }
+
+  th,
+  td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  /* Schedule page needs extra width because it has 7 columns */
+  body:has(#appointmentTable) table {
+    min-width: 900px;
+  }
+
+  /* Reports table is small enough to fit normally */
+  .report-table {
+    min-width: 100%;
+  }
+
+  .report-table th,
+  .report-table td {
+    white-space: normal;
+  }
+
+  /* ---------- Action Buttons ---------- */
+
+  .actions {
+    white-space: nowrap;
+  }
+
+  .actions button {
+    margin: 0.2rem;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  /* ---------- Modal ---------- */
+
+  .modal {
+    overflow-y: auto;
+  }
+
+  .modal-content {
+    width: calc(100% - 30px);
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 1.5rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea,
+  .modal-content button {
+    font-size: 16px;
+  }
+
+  /* ---------- Patient Details Panel ---------- */
+
+  .details-panel {
+    width: 100%;
+    max-width: 100%;
+    right: -100%;
+    padding: 1.5rem;
+  }
+
+  .details-panel.open {
+    right: 0;
+  }
+
+  .details-panel h2 {
+    font-size: 1.5rem;
+  }
+
+  /* ---------- Patient Summary ---------- */
+
+  .patient-summary {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .summary-box {
+    width: 100%;
+  }
+
+  /* ---------- Reports ---------- */
+
+  .report-table {
+    width: 100%;
+  }
+}
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 450px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .sidebar {
+    padding: 0.9rem 0.75rem;
+  }
+
+  .sidebar h2 {
+    font-size: 1.35rem;
+  }
+
+  .sidebar nav {
+    gap: 0.35rem;
+  }
+
+  .sidebar a {
+    font-size: 0.82rem;
+    padding: 0.55rem 0.65rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .patients {
+    padding: 0.8rem;
+  }
+
+  table {
+    min-width: 620px;
+  }
+
+  th,
+  td {
+    font-size: 0.82rem;
+    padding: 0.7rem;
+  }
+
+  .modal-content {
+    padding: 1.25rem;
+  }
+
+  .details-panel {
+    padding: 1.25rem;
+  }
+}
